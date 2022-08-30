@@ -1,0 +1,31 @@
+<ul>
+    <li routerLink="userlist">Users </li>
+    <li routerLink="../filelist">Files</li>
+</ul>
+<div class="container">
+    <table >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Birthdate</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Actions <button class="add" routerLink="../add" routerLinkActive="active">+<br> User</button> </th>
+            </tr>  
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of users;"  >
+                <td>{{item.id}}</td>
+                <td>{{item.name.firstname}} {{item.name.lastname}}</td>
+                <td>{{item.birthdate}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.address}}</td>
+                <td >  <button   class="action" [routerLink]="['../edituser',item.id]" >Edit </button> <br><button class="action1" (click)="OnRemove(item)" >Remove   </button>  </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ 
